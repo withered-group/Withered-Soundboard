@@ -2,13 +2,13 @@
   "build": {
     "beforeDevCommand": "yarn dev",
     "beforeBuildCommand": "yarn build",
-    "devPath": "http://localhost:1420",
+    "devPath": "http://localhost:1421",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "withered-soundboard",
-    "version": "0.0.0"
+    "productName": "Withered Soundboard",
+    "version": "1.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -16,6 +16,36 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "dialog": {
+        "all": false,
+        "open": true
+      },
+      "fs": {
+        "all": true,
+        "scope": ["*"]
+      },
+      "path": {
+        "all": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      },
+      "notification": {
+        "all": true
+      },
+      "protocol": {
+        "all": true,
+        "asset": true,
+        "assetScope": ["**"]
       }
     },
     "bundle": {
@@ -27,23 +57,32 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "group.withered.soundboard",
       "targets": "all"
     },
     "security": {
-      "csp": null
+      "csp": "default-src 'self' asset: https://asset.localhost; img-src 'self' asset: https://asset.localhost data:"
     },
     "updater": {
       "active": false
     },
     "windows": [
       {
+        "theme": "Dark",
         "fullscreen": false,
         "resizable": true,
-        "title": "withered-soundboard",
+        "title": "Withered Soundboard",
         "width": 800,
-        "height": 600
+        "minWidth": 735,
+        "height": 475,
+        "minHeight": 425,
+        "decorations": false
       }
-    ]
+    ],
+    "systemTray": {
+      "iconPath": "icons/icon.ico",
+      "iconAsTemplate": true,
+      "menuOnLeftClick": false
+    }
   }
 }

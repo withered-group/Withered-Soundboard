@@ -1,9 +1,12 @@
 {
   "name": "withered-soundboard",
+  "displayName": "Withered Soundboard",
+  "author": "Withered Group",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "start": "tauri dev",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
